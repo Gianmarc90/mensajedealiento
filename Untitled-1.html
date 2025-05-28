@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta para ti 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top right, #ffe0ec, #e0f7fa);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #333;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 600px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      position: relative;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      color: #ff6f91;
+    }
+
+    .heart {
+      font-size: 2rem;
+      color: #ff85a2;
+      animation: pulse 1.5s infinite;
+      margin: 1rem 0;
+    }
+
+    .button {
+      margin-top: 1.5rem;
+      background-color: #ffb6c1;
+      border: none;
+      padding: 0.8rem 1.6rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ff5c8a;
+    }
+
+    .letter {
+      margin-top: 1.5rem;
+      background: #fdfdfd;
+      border: 2px dashed #ffb6c1;
+      padding: 1.2rem;
+      border-radius: 15px;
+      font-size: 1.1rem;
+      display: none;
+      animation: slideUp 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio oculto -->
+  <audio id="musicaFondo" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <div class="container">
+    <h1>¡Hola, hermosa! 🌷</h1>
+    <p>Este es un pequeño regalo para ti...</p>
+    <div class="heart">💖</div>
+    <button class="button" onclick="mostrarCarta()">Abrir mi mensaje 💌</button>
+
+    <div class="letter" id="carta">
+      A veces la vida puede sentirse pesada, pero tú tienes una luz tan fuerte que ilumina todo a tu alrededor.  
+      Nunca olvides lo valiosa que eres, lo mucho que mereces sonreír, y lo lejos que puedes llegar.  
+      Hay una fuerza imparable, una resiliencia que te levanta una y otra vez, y un corazón capaz de transformar el
+      mundo con su bondad. Cree en ti, en tus sueños, y en todo lo que puedes lograr.  
+      Eres capaz, eres suficiente, y estás destinada a cosas maravillosas.  
+      Sigue adelante, porque lo mejor aún está por venir. 💫
+    </div>
+  </div>
+
+  <script>
+    function mostrarCarta() {
+      const carta = document.getElementById("carta");
+      carta.style.display = "block";
+
+      const audio = document.getElementById("musicaFondo");
+      audio.play().catch(function(error) {
+        console.log("Autoplay bloqueado. El usuario debe interactuar con la página.");
+      });
+    }
+  </script>
+
+</body>
+</html>
